@@ -1,9 +1,12 @@
 ﻿using UserService.Models;
-using Microsoft.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 namespace UserService.Data
 {
     public class UserContext : DbContext
     {
-        public List<User> Users { get; set; }
+        public UserContext(DbContextOptions<UserContext> options) : base(options)
+        {
+        }
+        public DbSet<User> Users { get; set; }
     }
 }
